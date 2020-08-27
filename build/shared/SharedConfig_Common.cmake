@@ -77,7 +77,7 @@ function(SetupCompilerFlags)
 	    set(OUTPUT_VARIABLE "")
 		# Execute GCC with the -dumpversion option, to give us a version string
         execute_process(COMMAND ${CMAKE_CXX_COMPILER} "-dumpversion" OUTPUT_VARIABLE GCC_VERSION_STRING)
-		if(LINUX)
+		if(UNIX AND NOT APPLE)
 		    execute_process(COMMAND ${CMAKE_CXX_COMPILER} "-dumpfullversion" OUTPUT_VARIABLE GCC_VERSION_STRING)
 	    endif()
 		# Match only the major and minor versions of the version string
